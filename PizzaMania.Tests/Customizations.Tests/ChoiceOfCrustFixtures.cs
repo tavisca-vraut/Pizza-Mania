@@ -1,7 +1,7 @@
 ﻿using Xunit;
 using FluentAssertions;
 
-using PizzaMania.Core.Customizations;
+using PizzaMania.Core.Customizations.Crust;
 
 namespace PizzaMania.Tests.Customizations.Tests
 {

@@ -1,26 +1,7 @@
 ﻿using System.Collections.Generic;
 
-namespace PizzaMania.Core.Customizations
+namespace PizzaMania.Core.Customizations.Crust
 {
-    public enum Crust
-    {
-        Default, PanTossed, CheeseBlast, ThisCrustCheeseBlast, ChickenCheeseBlast
-    }
-    public class ChoiceOfCrust
-    {
-        public Crust Value { get; }
-
-        public ChoiceOfCrust(Crust crust = Crust.Default)
-        {
-            Value = crust;
-        }
-
-        public float GetPrice()
-        {
-            return CrustPrices.GetPriceFor(Value);
-        }
-    }
-
     public static class CrustPrices
     {
         static Dictionary<Crust, float> PriceMap = new Dictionary<Crust, float>()
