@@ -7,5 +7,9 @@
   <ItemGroup>
     <Folder Include="Customizations\" />
     <Folder Include="Customizations\Crust\" />
+    <Folder Include="Customizations\Toppings\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Customizations\EmptyInterface.cs" />
   </ItemGroup>
 </Project>

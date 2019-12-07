@@ -1,7 +1,7 @@
 ﻿using Xunit;
 using FluentAssertions;
 
-using PizzaMania.Core.Customizations;
+using PizzaMania.Core.Customizations.Toppings;
 
 namespace PizzaMania.Tests.Customizations.Tests
 {
@@ -68,7 +68,7 @@ namespace PizzaMania.Tests.Customizations.Tests
             // total = 600
 
 
-            var actualPrice = ChoiceOfToppings.GetToppingsPrice();
+            var actualPrice = ChoiceOfToppings.GetPrice();
             var expectedPrice = 1100f;
 
             actualPrice.Should().Be(expectedPrice);
