@@ -1,4 +1,3 @@
-using System;
 using Xunit;
 using FluentAssertions;
 
@@ -30,5 +29,16 @@ namespace PizzaMania.Tests
             Pizza.AddSize(PizzaSize.Regular);
             Pizza.SupportedSize.Should().Contain(PizzaSize.Regular);
         }
+
+        [Fact]
+        public void Pizza_comparision()
+        {
+            var newPizza = new Pizza(PizzaName.BarbequeChicken);
+
+            (newPizza == this.Pizza).Should().Be(true);
+            (newPizza != this.Pizza).Should().Be(false);
+            (newPizza.Equals(this.Pizza)).Should().Be(true);
+        }
+
     }
 }
