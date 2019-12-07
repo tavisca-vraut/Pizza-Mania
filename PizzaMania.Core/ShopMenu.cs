@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace PizzaMania.Core
 {
@@ -18,6 +17,11 @@ namespace PizzaMania.Core
             {
                 Pizzas.Add(pizza);
             }
+        }
+
+        public IReadOnlyList<Pizza> GetItemsList()
+        {
+            return Pizzas;
         }
     }
 }

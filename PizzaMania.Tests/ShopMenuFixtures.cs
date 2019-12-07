@@ -1,7 +1,9 @@
-﻿using Xunit;
+﻿using System.Collections.Generic;
+using Xunit;
 using FluentAssertions;
 
 using PizzaMania.Core;
+using System;
 
 namespace PizzaMania.Tests
 {
@@ -45,6 +47,26 @@ namespace PizzaMania.Tests
             Menu.AddPizza(new Pizza(PizzaName.ChickenKeema));
 
             Menu.Pizzas.Count.Should().Be(3);
+        }
+
+        [Fact]
+        public void Test_for_retrieving_all_pizzas_on_menu()
+        {
+            Menu.AddPizza(new Pizza(PizzaName.ChickenKeema));
+            Menu.AddPizza(new Pizza(PizzaName.HamSalsa));
+            Menu.AddPizza(new Pizza(PizzaName.ChickenPepperoni));
+            Menu.AddPizza(new Pizza(PizzaName.ChickenKeema));
+
+            var expectedResult = new List<Pizza>
+            {
+                new Pizza(PizzaName.ChickenKeema),
+                new Pizza(PizzaName.HamSalsa),
+                new Pizza(PizzaName.ChickenPepperoni),
+            } as IReadOnlyList<Pizza>;
+
+            var actualResult = Menu.GetItemsList();
+
+            actualResult.Should().BeEquivalentTo(expectedResult);
         }
     }
 }
