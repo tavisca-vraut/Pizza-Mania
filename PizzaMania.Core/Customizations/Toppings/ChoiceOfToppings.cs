@@ -22,12 +22,22 @@ namespace PizzaMania.Core.Customizations.Toppings
             }
         }
 
+        public void RemoveFromVeg(VegTopping vegTopping)
+        {
+            VegToppings.Remove(vegTopping);
+        }
+
         public void AddToNonVeg(NonVegTopping nonVegTopping)
         {
             if (NonVegToppings.Contains(nonVegTopping) == false)
             {
                 NonVegToppings.Add(nonVegTopping);
             }
+        }
+
+        public void RemoveFromNonVeg(NonVegTopping nonVegTopping)
+        {
+            NonVegToppings.Remove(nonVegTopping);
         }
 
         public float GetPrice()

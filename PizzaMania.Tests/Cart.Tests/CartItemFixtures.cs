@@ -1,7 +1,7 @@
 ﻿using Xunit;
 using FluentAssertions;
 
-using PizzaMania.Cart;
+using PizzaMania.ShoppingCart;
 using PizzaMania.Core;
 using PizzaMania.Core.Customizations.Toppings;
 

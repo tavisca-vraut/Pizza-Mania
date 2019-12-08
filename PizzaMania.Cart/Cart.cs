@@ -1,8 +1,19 @@
-﻿using System;
+﻿using System.Collections.Generic;
 
-namespace PizzaMania.Cart
+namespace PizzaMania.ShoppingCart
 {
-    public class Class1
+    public class Cart
     {
+        public List<CartItem> Items;
+
+        public Cart()
+        {
+            Items = new List<CartItem>();
+        }
+
+        public void Add(CartItem cartItem)
+        {
+            Items.Add(cartItem);
+        }
     }
 }

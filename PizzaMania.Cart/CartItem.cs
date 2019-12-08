@@ -2,7 +2,7 @@
 using PizzaMania.Core.Customizations.Crust;
 using PizzaMania.Core.Customizations.Toppings;
 
-namespace PizzaMania.Cart
+namespace PizzaMania.ShoppingCart
 {
     public class CartItem
     {
@@ -18,9 +18,9 @@ namespace PizzaMania.Cart
             ChoiceOfToppings = new ChoiceOfToppings();
         }
 
-        public void AddChoiceOfCrust(ChoiceOfCrust choiceOfCrust)
+        public void ChangeCrust(Crust crust)
         {
-            ChoiceOfCrust = choiceOfCrust;
+            ChoiceOfCrust = new ChoiceOfCrust(crust);
         }
 
         public void AddTopping(VegTopping vegTopping)
