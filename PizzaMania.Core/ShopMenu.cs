@@ -4,7 +4,7 @@ namespace PizzaMania.Core
 {
     public class ShopMenu
     {
-        public List<Pizza> Pizzas { get; private set; }
+        private List<Pizza> Pizzas { get; set; }
 
         public ShopMenu()
         {

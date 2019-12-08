@@ -18,7 +18,7 @@ namespace PizzaMania.Tests
         [Fact]
         public void Test_for_shop_menu_initialization()
         {
-            Menu.Pizzas.Count.Should().Be(0);
+            Menu.GetItemsList().Count.Should().Be(0);
         }
 
         [Fact]
@@ -26,7 +26,7 @@ namespace PizzaMania.Tests
         {
             Menu.AddPizza(new Pizza(PizzaName.ChickenKeema));
 
-            Menu.Pizzas.Count.Should().Be(1);
+            Menu.GetItemsList().Count.Should().Be(1);
         }
 
         [Fact]
@@ -35,7 +35,7 @@ namespace PizzaMania.Tests
             Menu.AddPizza(new Pizza(PizzaName.ChickenKeema));
             Menu.AddPizza(new Pizza(PizzaName.ChickenKeema));
 
-            Menu.Pizzas.Count.Should().Be(1);
+            Menu.GetItemsList().Count.Should().Be(1);
         }
 
         [Fact]
@@ -46,7 +46,7 @@ namespace PizzaMania.Tests
             Menu.AddPizza(new Pizza(PizzaName.ChickenPepperoni));
             Menu.AddPizza(new Pizza(PizzaName.ChickenKeema));
 
-            Menu.Pizzas.Count.Should().Be(3);
+            Menu.GetItemsList().Count.Should().Be(3);
         }
 
         [Fact]

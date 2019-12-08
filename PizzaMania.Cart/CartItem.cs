@@ -8,6 +8,8 @@ namespace PizzaMania.ShoppingCart
     {
         public Pizza Pizza;
 
+        public PizzaSize Size;
+
         public ChoiceOfCrust ChoiceOfCrust;
         public ChoiceOfToppings ChoiceOfToppings;
 
