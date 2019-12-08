@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using PizzaMania.Core.Customizations.Toppings;
 
 namespace PizzaMania.Core.Customizations.Toppings
 {
-    public class ChoiceOfToppings: ICustomization
+    public class ChoiceOfToppings
     {
         public List<VegTopping> VegToppings { get; private set; }
         public List<NonVegTopping> NonVegToppings { get; private set; }

@@ -19,6 +19,11 @@ namespace PizzaMania.Core
             SupportedSize.Add(pizzaSize);
         }
 
+        public float GetPrice()
+        {
+            return PizzaPrices.GetPriceFor(Name);
+        }
+
         public static bool operator ==(Pizza pizza1, Pizza pizza2)
         {
             return pizza1.Name == pizza2.Name;

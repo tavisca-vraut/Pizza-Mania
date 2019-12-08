@@ -1,6 +1,6 @@
 ﻿namespace PizzaMania.Core.Customizations.Crust
 {
-    public class ChoiceOfCrust: ICustomization
+    public class ChoiceOfCrust
     {
         public Crust Value { get; }
 

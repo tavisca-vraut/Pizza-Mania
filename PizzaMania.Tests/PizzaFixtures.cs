@@ -40,5 +40,14 @@ namespace PizzaMania.Tests
             (newPizza.Equals(this.Pizza)).Should().Be(true);
         }
 
+        [Fact]
+        public void Pizza_test_for_price()
+        {
+            var actualPizzaPrice = Pizza.GetPrice();
+            var expectedPizzaPrice = 150f;
+
+            actualPizzaPrice.Should().Be(expectedPizzaPrice);
+        }
+
     }
 }

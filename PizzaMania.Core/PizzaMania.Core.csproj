@@ -8,8 +8,10 @@
     <Folder Include="Customizations\" />
     <Folder Include="Customizations\Crust\" />
     <Folder Include="Customizations\Toppings\" />
+    <Folder Include="Pizza\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Customizations\EmptyInterface.cs" />
+    <Compile Remove="Customizations\ICustomization.cs" />
   </ItemGroup>
 </Project>

@@ -3,7 +3,7 @@ using FluentAssertions;
 
 using PizzaMania.Core.Customizations.Toppings;
 
-namespace PizzaMania.Tests.Customizations.Tests
+namespace PizzaMania.Customizations.Tests
 {
     public class ChoiceOfToppingsFixtures
     {

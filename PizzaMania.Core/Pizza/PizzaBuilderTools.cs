@@ -1,5 +1,4 @@
-﻿using System;
-namespace PizzaMania.Core
+﻿namespace PizzaMania.Core
 {
     public enum PizzaSize
     {

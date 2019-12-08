@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PizzaMania.Core\PizzaMania.Core.csproj" />
+    <ProjectReference Include="..\PizzaMania.Cart\PizzaMania.Cart.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Customizations.Tests\" />
