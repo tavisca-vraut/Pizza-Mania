@@ -5,7 +5,7 @@ using PizzaMania.Core;
 
 namespace PizzaMania.App
 {
-    public static class Menu
+    public static class ClientMenuManager
     {
         public static ShopMenu Instance;
 
@@ -65,7 +65,7 @@ namespace PizzaMania.App
             Instance.AddPizza(pizza);
         }
 
-        public static void Display()
+        public static void DisplayMenu()
         {
             Console.Clear();
 
@@ -101,7 +101,7 @@ namespace PizzaMania.App
                 Size = ChooseSize(pizza.SupportedSize)
             };
 
-            Cart.Instance.Add(cartItem);
+            ClientCartManager.Instance.Add(cartItem);
         }
 
         public static PizzaSize ChooseSize(HashSet<PizzaSize> supportedSizes)

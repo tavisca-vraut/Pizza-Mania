@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace PizzaMania.App
 {
@@ -13,35 +11,46 @@ namespace PizzaMania.App
             Console.WriteLine("1. Select from Menu.");
             Console.WriteLine("2. View Cart.");
             Console.WriteLine("3. Checkout and place order.");
-            Console.WriteLine("4. Clear the Console.");
             Console.WriteLine("q. Quit");
-            Console.WriteLine("Choose your option (1, 2, 3, 4, q): ");
+            Console.WriteLine("Choose your option (1, 2, 3, q): ");
         }
 
         public static void ItemDisplay(ShoppingCart.CartItem cartItem)
         {
             Console.WriteLine($"Pizza: {cartItem.Pizza.Name}, Base Cost: {cartItem.Pizza.GetPrice()}");
-            Console.WriteLine($"    Size: {cartItem.Size}");
+            Console.WriteLine($"\tSize: {cartItem.Size}");
 
             var crust = $"{cartItem.ChoiceOfCrust.Value}".CamelCaseToSpaceSeparated();
-            Console.WriteLine($"    Crust: {crust}");
+            Console.WriteLine($"\tCrust: {crust}");
 
-            Console.WriteLine($"    Toppings Total Cost: (Total Cost: {cartItem.ChoiceOfToppings.GetPrice()})");
-            Console.WriteLine($"        Veg Toppings:");
-            foreach (var topping in cartItem.ChoiceOfToppings.VegToppings)
+            if (cartItem.ChoiceOfToppings.VegToppings.Count != 0 || 
+                cartItem.ChoiceOfToppings.NonVegToppings.Count != 0)
             {
-                var toppingInString = $"{topping}".CamelCaseToSpaceSeparated();
-                Console.WriteLine($"            {toppingInString}");
+                Console.WriteLine($"\tToppings Total Cost: (Total Cost: {cartItem.ChoiceOfToppings.GetPrice()})");
             }
-            Console.WriteLine($"        Non-Veg Toppings:");
-            foreach (var topping in cartItem.ChoiceOfToppings.NonVegToppings)
+
+            if (cartItem.ChoiceOfToppings.VegToppings.Count != 0)
             {
-                var toppingInString = $"{topping}".CamelCaseToSpaceSeparated();
-                Console.WriteLine($"            {toppingInString}");
+                Console.WriteLine($"\t\tVeg Toppings:");
+                foreach (var topping in cartItem.ChoiceOfToppings.VegToppings)
+                {
+                    var toppingInString = $"{topping}".CamelCaseToSpaceSeparated();
+                    Console.WriteLine($"\t\t\t{toppingInString}");
+                }
+            }
+
+            if (cartItem.ChoiceOfToppings.NonVegToppings.Count != 0)
+            {
+                Console.WriteLine($"\t\tNon-Veg Toppings:");
+                foreach (var topping in cartItem.ChoiceOfToppings.NonVegToppings)
+                {
+                    var toppingInString = $"{topping}".CamelCaseToSpaceSeparated();
+                    Console.WriteLine($"\t\t\t{toppingInString}");
+                }
             }
 
             var itemTotal = cartItem.GetTotalCost();
-            Console.WriteLine($"    Total: {itemTotal}" + Environment.NewLine);
+            Console.WriteLine($"\tTotal: {itemTotal}" + Environment.NewLine);
         }
 
         public static void CartItemOptionsDisplay()
@@ -87,7 +96,8 @@ namespace PizzaMania.App
             int index = 0;
             foreach (var enumValue in values)
             {
-                Console.WriteLine($"    {1 + index++}. {enumValue}");
+                var value = $"{enumValue}".CamelCaseToSpaceSeparated();
+                Console.WriteLine($"\t{1 + index++}. {value}");
             }
             AppConsole.HowToSelectDisplay(values.Count());
         }

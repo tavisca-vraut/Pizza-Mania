@@ -9,7 +9,7 @@ namespace PizzaMania.App
         public static void TabulatedDisplayWithNumber(int index, string name)
         {
             var itemName = name.CamelCaseToSpaceSeparated();
-            System.Console.WriteLine($"    {index}. {itemName} Pizza");
+            Console.WriteLine($"\t{index}. {itemName} Pizza");
         }
 
         public static IEnumerable<T> GetValues<T>()
@@ -27,7 +27,7 @@ namespace PizzaMania.App
             int index = 0;
             foreach (var value in list)
             {
-                Console.WriteLine($"    {1 + index++}. {value}");
+                Console.WriteLine($"\t{1 + index++}. {value}");
             }
         }
 

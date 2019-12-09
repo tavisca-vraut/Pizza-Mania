@@ -2,6 +2,6 @@
 {
     public enum Crust
     {
-        Default, PanTossed, CheeseBlast, ThisCrustCheeseBlast, ChickenCheeseBlast
+        Default, PanTossed, CheeseBlast, CrustCheeseBlast, ChickenCheeseBlast
     }
 }

@@ -6,29 +6,23 @@ namespace PizzaMania.App
     {
         static void Main(string[] args)
         {
-            Menu.SetMenu();
-            Cart.Instance = new ShoppingCart.Cart();
+            ClientMenuManager.SetMenu();
+            ClientCartManager.Instance = new ShoppingCart.Cart();
 
-            var choice = "4";
+            var choice = "";
 
             while (choice.ToLower() != "q")
             {
                 switch (choice)
                 {
                     case "1":
-                        Menu.Display();
+                        ClientMenuManager.DisplayMenu();
                         break;
                     case "2":
-                        Cart.Display();
+                        ClientCartManager.DisplayCart();
                         break;
                     case "3":
-                        Cart.Checkout();
-                        break;
-                    case "4":
-                        Console.Clear();
-                        break;
-                    default:
-                        Console.WriteLine("Invalid Choice. Please try again...");
+                        ClientCartManager.Checkout();
                         break;
                 }
 

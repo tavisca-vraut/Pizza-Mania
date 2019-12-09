@@ -7,35 +7,35 @@ using PizzaMania.Core.Customizations.Toppings;
 
 namespace PizzaMania.App
 {
-    public static class Cart
+    public static class ClientCartManager
     {
         public static ShoppingCart.Cart Instance;
 
-        public static void Display()
+        public static void DisplayCart()
         {
             float total = 0f;
             int index = 0;
 
             Console.Clear();
-            foreach (var item in Cart.Instance.Items)
+            foreach (var item in Instance.Items)
             {
                 Console.Write($"{1 + index++}. ");
                 AppConsole.ItemDisplay(item);
                 total += item.GetTotalCost();
             }
 
-            if (Cart.Instance.Items.Count == 0)
+            if (Instance.Items.Count == 0)
             {
                 Util.PrintNoItemsInCart();
             }
             else
             {
-                AppConsole.HowToSelectDisplay(Cart.Instance.Items.Count);
+                AppConsole.HowToSelectDisplay(Instance.Items.Count);
 
                 try
                 {
                     int cartItemIndex = int.Parse(Console.ReadLine());
-                    CustomizeCartItem(Cart.Instance.Items[cartItemIndex - 1]);
+                    CustomizeCartItem(Instance.Items[cartItemIndex - 1]);
                 }
                 catch (Exception) { }
             }
@@ -51,22 +51,22 @@ namespace PizzaMania.App
             switch (choice)
             {
                 case "1":
-                    cartItem.Size = Menu.ChooseSize(cartItem.Pizza.SupportedSize);
+                    cartItem.Size = ClientMenuManager.ChooseSize(cartItem.Pizza.SupportedSize);
                     break;
                 case "2":
-                    Cart.ModifyCrustOfCartItem(cartItem);
+                    ModifyCrustOfCartItem(cartItem);
                     break;
                 case "3":
-                    Cart.AddToppingToCartItem<VegTopping>(cartItem);
+                    AddToppingToCartItem<VegTopping>(cartItem);
                     break;
                 case "4":
-                    Cart.RemoveToppingFromCartItem(cartItem, cartItem.ChoiceOfToppings.VegToppings);
+                    RemoveToppingFromCartItem(cartItem, cartItem.ChoiceOfToppings.VegToppings);
                     break;
                 case "5":
-                    Cart.AddToppingToCartItem<NonVegTopping>(cartItem);
+                    AddToppingToCartItem<NonVegTopping>(cartItem);
                     break;
                 case "6":
-                    Cart.RemoveToppingFromCartItem(cartItem, cartItem.ChoiceOfToppings.NonVegToppings);
+                    RemoveToppingFromCartItem(cartItem, cartItem.ChoiceOfToppings.NonVegToppings);
                     break;
                 default:
                     break;
@@ -78,7 +78,7 @@ namespace PizzaMania.App
             Console.Clear();
             float total = 0f;
 
-            foreach (var item in Cart.Instance.Items)
+            foreach (var item in Instance.Items)
             {
                 AppConsole.ItemDisplay(item);
                 total += item.GetTotalCost();
