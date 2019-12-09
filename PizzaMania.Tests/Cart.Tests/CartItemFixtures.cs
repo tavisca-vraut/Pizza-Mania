@@ -39,8 +39,8 @@ namespace PizzaMania.Tests
         [Fact]
         public void Test_for_total_cost_of_cart_item_with_toppings()
         {
-            CartItem.AddTopping(VegTopping.PaneerCubes);
-            CartItem.AddTopping(NonVegTopping.HamSlices);
+            CartItem.ChoiceOfToppings.Add(VegTopping.PaneerCubes);
+            CartItem.ChoiceOfToppings.Add(NonVegTopping.HamSlices);
 
             var actualPrice = CartItem.GetTotalCost();
             var expectedPrice = 625f;

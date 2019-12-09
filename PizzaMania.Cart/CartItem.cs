@@ -25,16 +25,6 @@ namespace PizzaMania.ShoppingCart
             ChoiceOfCrust = new ChoiceOfCrust(crust);
         }
 
-        public void AddTopping(VegTopping vegTopping)
-        {
-            ChoiceOfToppings.AddToVeg(vegTopping);
-        }
-
-        public void AddTopping(NonVegTopping nonVegTopping)
-        {
-            ChoiceOfToppings.AddToNonVeg(nonVegTopping);
-        }
-
         public float GetTotalCost()
         {
             float cost = 0;

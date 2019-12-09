@@ -24,7 +24,7 @@ namespace PizzaMania.Customizations.Tests
         [Fact]
         public void Test_for_additions_to_veg_toppings()
         {
-            ChoiceOfToppings.AddToVeg(VegTopping.PaneerCubes);
+            ChoiceOfToppings.Add(VegTopping.PaneerCubes);
 
             ChoiceOfToppings.VegToppings.Count.Should().Be(1);
             ChoiceOfToppings.VegToppings.Should().Contain(VegTopping.PaneerCubes);
@@ -33,7 +33,7 @@ namespace PizzaMania.Customizations.Tests
         [Fact]
         public void Test_for_additions_to_non_veg_toppings()
         {
-            ChoiceOfToppings.AddToNonVeg(NonVegTopping.ShreddedBeef);
+            ChoiceOfToppings.Add(NonVegTopping.ShreddedBeef);
 
             ChoiceOfToppings.NonVegToppings.Count.Should().Be(1);
             ChoiceOfToppings.NonVegToppings.Should().Contain(NonVegTopping.ShreddedBeef);
@@ -42,11 +42,11 @@ namespace PizzaMania.Customizations.Tests
         [Fact]
         public void Test_for_avoiding_additions_of_duplicate_toppings()
         {
-            ChoiceOfToppings.AddToVeg(VegTopping.PaneerCubes);
-            ChoiceOfToppings.AddToNonVeg(NonVegTopping.ShreddedBeef);
+            ChoiceOfToppings.Add(VegTopping.PaneerCubes);
+            ChoiceOfToppings.Add(NonVegTopping.ShreddedBeef);
 
-            ChoiceOfToppings.AddToVeg(VegTopping.PaneerCubes);
-            ChoiceOfToppings.AddToNonVeg(NonVegTopping.ShreddedBeef);
+            ChoiceOfToppings.Add(VegTopping.PaneerCubes);
+            ChoiceOfToppings.Add(NonVegTopping.ShreddedBeef);
 
             ChoiceOfToppings.VegToppings.Count.Should().Be(1);
             ChoiceOfToppings.VegToppings.Should().Contain(VegTopping.PaneerCubes);
@@ -58,13 +58,13 @@ namespace PizzaMania.Customizations.Tests
         [Fact]
         public void Test_for_toppings_prices()
         {
-            ChoiceOfToppings.AddToVeg(VegTopping.PaneerCubes);  // 200
-            ChoiceOfToppings.AddToVeg(VegTopping.SpicyJalepenos);  // 150
-            ChoiceOfToppings.AddToVeg(VegTopping.BlackOlives);  // 150
+            ChoiceOfToppings.Add(VegTopping.PaneerCubes);  // 200
+            ChoiceOfToppings.Add(VegTopping.SpicyJalepenos);  // 150
+            ChoiceOfToppings.Add(VegTopping.BlackOlives);  // 150
             // total = 500
 
-            ChoiceOfToppings.AddToNonVeg(NonVegTopping.HamSlices);  // 200
-            ChoiceOfToppings.AddToNonVeg(NonVegTopping.ShreddedBeef);  // 400
+            ChoiceOfToppings.Add(NonVegTopping.HamSlices);  // 200
+            ChoiceOfToppings.Add(NonVegTopping.ShreddedBeef);  // 400
             // total = 600
 
 

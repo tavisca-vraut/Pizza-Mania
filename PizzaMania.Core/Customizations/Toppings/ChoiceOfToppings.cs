@@ -14,30 +14,34 @@ namespace PizzaMania.Core.Customizations.Toppings
             NonVegToppings = new List<NonVegTopping>();
         }
 
-        public void AddToVeg(VegTopping vegTopping)
+        public void Add<T>(T topping)
         {
-            if (VegToppings.Contains(vegTopping) == false)
+            if (topping is VegTopping vegTopping)
             {
-                VegToppings.Add(vegTopping);
+                if (VegToppings.Contains(vegTopping) == false)
+                {
+                    VegToppings.Add(vegTopping);
+                }
+            }
+            if (topping is NonVegTopping nonVegTopping)
+            {
+                if (NonVegToppings.Contains(nonVegTopping) == false)
+                {
+                    NonVegToppings.Add(nonVegTopping);
+                }
             }
         }
 
-        public void RemoveFromVeg(VegTopping vegTopping)
+        public void Remove<T>(T topping)
         {
-            VegToppings.Remove(vegTopping);
-        }
-
-        public void AddToNonVeg(NonVegTopping nonVegTopping)
-        {
-            if (NonVegToppings.Contains(nonVegTopping) == false)
+            if (topping is VegTopping vegTopping)
             {
-                NonVegToppings.Add(nonVegTopping);
+                VegToppings.Remove(vegTopping);
             }
-        }
-
-        public void RemoveFromNonVeg(NonVegTopping nonVegTopping)
-        {
-            NonVegToppings.Remove(nonVegTopping);
+            if (topping is NonVegTopping nonVegTopping)
+            {
+                NonVegToppings.Remove(nonVegTopping);
+            }
         }
 
         public float GetPrice()
