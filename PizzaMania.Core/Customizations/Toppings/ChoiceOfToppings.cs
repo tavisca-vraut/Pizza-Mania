@@ -22,6 +22,7 @@ namespace PizzaMania.Core.Customizations.Toppings
                 {
                     VegToppings.Add(vegTopping);
                 }
+                return;
             }
             if (topping is NonVegTopping nonVegTopping)
             {
@@ -29,6 +30,7 @@ namespace PizzaMania.Core.Customizations.Toppings
                 {
                     NonVegToppings.Add(nonVegTopping);
                 }
+                return;
             }
         }
 
@@ -37,10 +39,12 @@ namespace PizzaMania.Core.Customizations.Toppings
             if (topping is VegTopping vegTopping)
             {
                 VegToppings.Remove(vegTopping);
+                return;
             }
             if (topping is NonVegTopping nonVegTopping)
             {
                 NonVegToppings.Remove(nonVegTopping);
+                return;
             }
         }
 

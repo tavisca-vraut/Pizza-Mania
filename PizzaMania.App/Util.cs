@@ -16,5 +16,24 @@ namespace PizzaMania.App
         {
             return Enum.GetValues(typeof(T)).Cast<T>();
         }
+
+        public static T EnumAtIndex<T>(int index)
+        {
+            return GetValues<T>().ToList()[index];
+        }
+
+        public static void PrintList<T>(List<T> list)
+        {
+            int index = 0;
+            foreach (var value in list)
+            {
+                Console.WriteLine($"    {1 + index++}. {value}");
+            }
+        }
+
+        public static void PrintNoItemsInCart()
+        {
+            Console.WriteLine("There were no items in your cart. ");
+        }
     }
 }

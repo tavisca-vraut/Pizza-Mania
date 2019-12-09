@@ -65,7 +65,7 @@ namespace PizzaMania.App
             Instance.AddPizza(pizza);
         }
 
-        public static void View()
+        public static void Display()
         {
             Console.Clear();
 
@@ -80,18 +80,13 @@ namespace PizzaMania.App
                 Console.WriteLine("Press 0 to return to main menu...");
                 Console.WriteLine("Your choice is ?");
 
-                choice = Console.ReadLine();
-
-                if (int.TryParse(choice, out int value) == true)
+                try
                 {
-                    if (value == 0) return;
-
-                    if (value >= 1 && value <= Instance.GetItemsList().Count)
-                    {
-                        ChoosePizza(Instance.GetItemsList()[value - 1]);
-                        return;
-                    }
+                    int value = int.Parse(Console.ReadLine());
+                    ChoosePizza(Instance.GetItemsList()[value - 1]);
+                    return;
                 }
+                catch (Exception) { }
 
                 Console.Clear();
                 Console.WriteLine("Invalid Choice. Try Again...");
