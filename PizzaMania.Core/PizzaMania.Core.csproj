@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Customizations\" />
+    <Folder Include="Customizations\Crust\" />
+    <Folder Include="Customizations\Toppings\" />
+    <Folder Include="Pizza\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Customizations\EmptyInterface.cs" />
+    <Compile Remove="Customizations\ICustomization.cs" />
+  </ItemGroup>
+</Project>
